@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-transition name="get_path" player="0" urgent="false"/>
+  <shared-transition name="sent" player="0" urgent="false"/>
+  <shared-transition name="get_proposed" player="0" urgent="false"/>
+  <shared-transition name="get_purposed" player="0" urgent="false"/>
+  <shared-transition name="problem_detected" player="0" urgent="false"/>
+  <shared-transition name="location_detected" player="0" urgent="false"/>
+  <shared-transition name="get_purpose" player="0" urgent="false"/>
+  <shared-transition name="sent_problem" player="0" urgent="false"/>
+  <shared-transition name="sent_location" player="0" urgent="false"/>
+  <shared-transition name="problem_accepted" player="0" urgent="false"/>
+  <shared-transition name="location_accepted" player="0" urgent="false"/>
+  <net active="true" id="motor" type="P/T net">
+    <place displayName="true" id="wait" initialMarking="1" invariant="&lt; inf" name="wait" nameOffsetX="-6" nameOffsetY="14" positionX="107" positionY="174"/>
+    <place displayName="true" id="move_to_target" initialMarking="0" invariant="&lt; inf" name="move_to_target" nameOffsetX="112" nameOffsetY="14" positionX="300" positionY="180"/>
+    <transition angle="0" displayName="true" id="get_path" infiniteServer="false" name="get_path" nameOffsetX="36" nameOffsetY="-17" player="0" positionX="209" positionY="105" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="arrived" infiniteServer="false" name="arrived" nameOffsetX="33" nameOffsetY="43" player="0" positionX="210" positionY="255" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="get_path" target="move_to_target" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="228" yCoord="120"/>
+      <arcpath arcPointType="false" id="1" xCoord="303" yCoord="185"/>
+    </arc>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="move_to_target" target="arrived" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="303" yCoord="205"/>
+      <arcpath arcPointType="false" id="1" xCoord="230" yCoord="270"/>
+    </arc>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="arrived" target="wait" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="220" yCoord="270"/>
+      <arcpath arcPointType="false" id="1" xCoord="133" yCoord="198"/>
+    </arc>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait" target="get_path" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="134" yCoord="180"/>
+      <arcpath arcPointType="false" id="1" xCoord="218" yCoord="120"/>
+    </arc>
+  </net>
+  <net active="true" id="detector" type="P/T net">
+    <place displayName="true" id="process_input" initialMarking="0" invariant="&lt; inf" name="process_input" nameOffsetX="0" nameOffsetY="0" positionX="376" positionY="217"/>
+    <place displayName="true" id="report" initialMarking="0" invariant="&lt; inf" name="report" nameOffsetX="28" nameOffsetY="-11" positionX="644" positionY="219"/>
+    <place displayName="true" id="idle" initialMarking="1" invariant="&lt; inf" name="idle" nameOffsetX="0" nameOffsetY="0" positionX="158" positionY="217"/>
+    <transition angle="0" displayName="true" id="problem_detected" infiniteServer="false" name="problem_detected" nameOffsetX="58" nameOffsetY="-18" player="0" positionX="509" positionY="161" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="problem_accepted" infiniteServer="false" name="problem_accepted" nameOffsetX="50" nameOffsetY="44" player="0" positionX="511" positionY="309" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="get_purpose" infiniteServer="false" name="get_purpose" nameOffsetX="40" nameOffsetY="-27" player="0" positionX="262" positionY="217" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="process_input" target="problem_detected" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="405" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="519" yCoord="177"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="problem_detected" target="report" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="529" yCoord="176"/>
+      <arcpath arcPointType="false" id="1" xCoord="645" yCoord="228"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="report" target="problem_accepted" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="647" yCoord="242"/>
+      <arcpath arcPointType="false" id="1" xCoord="531" yCoord="324"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="problem_accepted" target="process_input" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="521" yCoord="325"/>
+      <arcpath arcPointType="false" id="1" xCoord="403" yCoord="241"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="idle" target="get_purpose" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="188" yCoord="232"/>
+      <arcpath arcPointType="false" id="1" xCoord="272" yCoord="233"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="get_purpose" target="process_input" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="282" yCoord="232"/>
+      <arcpath arcPointType="false" id="1" xCoord="376" yCoord="232"/>
+    </arc>
+  </net>
+  <net active="true" id="receiver" type="P/T net">
+    <place displayName="true" id="translate" initialMarking="0" invariant="&lt; inf" name="translate" nameOffsetX="33" nameOffsetY="-19" positionX="186" positionY="105"/>
+    <place displayName="true" id="wait" initialMarking="1" invariant="&lt; inf" name="wait" nameOffsetX="27" nameOffsetY="38" positionX="418" positionY="116"/>
+    <transition angle="0" displayName="true" id="receive" infiniteServer="false" name="receive" nameOffsetX="33" nameOffsetY="44" player="0" positionX="301" positionY="239" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="get_path" infiniteServer="false" name="get_path" nameOffsetX="31" nameOffsetY="-18" player="0" positionX="296" positionY="44" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="get_purpose" infiniteServer="false" name="get_purpose" nameOffsetX="35" nameOffsetY="42" player="0" positionX="303" positionY="137" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="receive" target="translate" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="311" yCoord="254"/>
+      <arcpath arcPointType="false" id="1" xCoord="210" yCoord="132"/>
+    </arc>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="-4" nameOffsetY="-13" source="translate" target="get_path" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="214" yCoord="112"/>
+      <arcpath arcPointType="false" id="1" xCoord="306" yCoord="59"/>
+    </arc>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="-4" nameOffsetY="0" source="translate" target="get_purpose" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="215" yCoord="124"/>
+      <arcpath arcPointType="false" id="1" xCoord="313" yCoord="152"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="37" nameOffsetY="23" source="wait" target="receive" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="423" yCoord="142"/>
+      <arcpath arcPointType="false" id="1" xCoord="321" yCoord="254"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="get_path" target="wait" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="316" yCoord="59"/>
+      <arcpath arcPointType="false" id="1" xCoord="420" yCoord="123"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="get_purpose" target="wait" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="323" yCoord="152"/>
+      <arcpath arcPointType="false" id="1" xCoord="418" yCoord="134"/>
+    </arc>
+  </net>
+  <net active="true" id="transmitter" type="P/T net">
+    <place displayName="true" id="wait_problem" initialMarking="1" invariant="&lt; inf" name="wait_problem" nameOffsetX="-9" nameOffsetY="13" positionX="102" positionY="311"/>
+    <place displayName="true" id="send_problem" initialMarking="0" invariant="&lt; inf" name="send_problem" nameOffsetX="105" nameOffsetY="16" positionX="351" positionY="311"/>
+    <place displayName="true" id="wait_location" initialMarking="1" invariant="&lt; inf" name="wait_location" nameOffsetX="-8" nameOffsetY="9" positionX="100" positionY="154"/>
+    <place displayName="true" id="send_location" initialMarking="0" invariant="&lt; inf" name="send_location" nameOffsetX="92" nameOffsetY="-13" positionX="356" positionY="156"/>
+    <transition angle="0" displayName="true" id="problem_accepted" infiniteServer="false" name="problem_accepted" nameOffsetX="66" nameOffsetY="46" player="0" positionX="231" positionY="376" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="location_detected" infiniteServer="false" name="location_detected" nameOffsetX="59" nameOffsetY="-14" player="0" positionX="231" positionY="96" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="sent_problem" infiniteServer="false" name="sent_problem" nameOffsetX="43" nameOffsetY="47" player="0" positionX="231" positionY="279" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="location_accepted" infiniteServer="false" name="location_accepted" nameOffsetX="68" nameOffsetY="46" player="0" positionX="235" positionY="195" priority="0" urgent="false"/>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait_problem" target="problem_accepted" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="130" yCoord="333"/>
+      <arcpath arcPointType="false" id="1" xCoord="241" yCoord="392"/>
+    </arc>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="problem_accepted" target="send_problem" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="251" yCoord="386"/>
+      <arcpath arcPointType="false" id="1" xCoord="353" yCoord="333"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait_location" target="location_detected" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="129" yCoord="163"/>
+      <arcpath arcPointType="false" id="1" xCoord="241" yCoord="112"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="location_detected" target="send_location" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="251" yCoord="116"/>
+      <arcpath arcPointType="false" id="1" xCoord="357" yCoord="165"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="send_problem" target="sent_problem" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="352" yCoord="322"/>
+      <arcpath arcPointType="false" id="1" xCoord="251" yCoord="294"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="sent_problem" target="wait_problem" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="241" yCoord="295"/>
+      <arcpath arcPointType="false" id="1" xCoord="132" yCoord="322"/>
+    </arc>
+    <arc id="I8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="send_problem" target="location_detected" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="381" yCoord="325"/>
+      <arcpath arcPointType="false" id="1" xCoord="496" yCoord="319"/>
+      <arcpath arcPointType="false" id="2" xCoord="471" yCoord="114"/>
+      <arcpath arcPointType="false" id="3" xCoord="251" yCoord="106"/>
+    </arc>
+    <arc id="I9" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="send_location" target="problem_accepted" type="tapnInhibitor" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="386" yCoord="174"/>
+      <arcpath arcPointType="false" id="1" xCoord="455" yCoord="190"/>
+      <arcpath arcPointType="false" id="2" xCoord="494" yCoord="391"/>
+      <arcpath arcPointType="false" id="3" xCoord="251" yCoord="391"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="send_location" target="location_accepted" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="357" yCoord="176"/>
+      <arcpath arcPointType="false" id="1" xCoord="255" yCoord="215"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="location_accepted" target="wait_location" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="245" yCoord="211"/>
+      <arcpath arcPointType="false" id="1" xCoord="129" yCoord="174"/>
+    </arc>
+  </net>
+  <net active="true" id="localizer" type="P/T net">
+    <place displayName="true" id="localizing" initialMarking="1" invariant="&lt; inf" name="localizing" nameOffsetX="30" nameOffsetY="-15" positionX="60" positionY="125"/>
+    <place displayName="true" id="report" initialMarking="0" invariant="&lt; inf" name="report" nameOffsetX="69" nameOffsetY="9" positionX="280" positionY="125"/>
+    <transition angle="0" displayName="true" id="location_detected" infiniteServer="false" name="location_detected" nameOffsetX="63" nameOffsetY="-16" player="0" positionX="175" positionY="75" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="location_accepted" infiniteServer="false" name="location_accepted" nameOffsetX="63" nameOffsetY="38" player="0" positionX="180" positionY="190" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="localizing" target="location_detected" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="89" yCoord="134"/>
+      <arcpath arcPointType="false" id="1" xCoord="185" yCoord="91"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="location_detected" target="report" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="195" yCoord="90"/>
+      <arcpath arcPointType="false" id="1" xCoord="281" yCoord="133"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="report" target="location_accepted" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="282" yCoord="148"/>
+      <arcpath arcPointType="false" id="1" xCoord="200" yCoord="205"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="location_accepted" target="localizing" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="190" yCoord="206"/>
+      <arcpath arcPointType="false" id="1" xCoord="88" yCoord="147"/>
+    </arc>
+  </net>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Query Comment/Name Here" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <query active="true" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="false" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="Query Comment/no dead lock" overApproximation="false" pTrie="true" query="EF !(deadlock)" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
