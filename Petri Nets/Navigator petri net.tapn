@@ -3,23 +3,23 @@
   <net active="true" id="TAPN1" type="P/T net">
     <place displayName="true" id="calculate_path" initialMarking="1" invariant="&lt; inf" name="calculate_path" nameOffsetX="50" nameOffsetY="-16" positionX="330" positionY="120"/>
     <place displayName="true" id="wait" initialMarking="0" invariant="&lt; inf" name="wait" nameOffsetX="28" nameOffsetY="45" positionX="330" positionY="210"/>
-    <transition angle="0" displayName="true" id="receive_information_from_manager" infiniteServer="false" name="receive_information_from_manager" nameOffsetX="-1" nameOffsetY="37" player="0" positionX="225" positionY="120" priority="0" urgent="false"/>
-    <transition angle="0" displayName="true" id="return_information_to_manager" infiniteServer="false" name="return_information_to_manager" nameOffsetX="181" nameOffsetY="43" player="0" positionX="450" positionY="120" priority="0" urgent="false"/>
-    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="receive_information_from_manager" target="calculate_path" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="245" yCoord="127"/>
-      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="133"/>
+    <transition angle="0" displayName="true" id="navigator_received_location" infiniteServer="false" name="navigator_received_location" nameOffsetX="-1" nameOffsetY="37" player="0" positionX="225" positionY="120" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="path_calculated" infiniteServer="false" name="path_calculated" nameOffsetX="101" nameOffsetY="42" player="0" positionX="450" positionY="120" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="navigator_received_location" target="calculate_path" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="245" yCoord="130"/>
+      <arcpath arcPointType="false" id="1" xCoord="330" yCoord="134"/>
     </arc>
-    <arc id="A1" inscription="[0,inf)" nameOffsetX="4" nameOffsetY="-7" source="calculate_path" target="return_information_to_manager" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="359" yCoord="134"/>
-      <arcpath arcPointType="false" id="1" xCoord="460" yCoord="130"/>
+    <arc id="A1" inscription="[0,inf)" nameOffsetX="4" nameOffsetY="-7" source="calculate_path" target="path_calculated" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="360" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="459" yCoord="135"/>
     </arc>
-    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="return_information_to_manager" target="wait" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="459" yCoord="143"/>
+    <arc id="A2" inscription="1" nameOffsetX="0" nameOffsetY="0" source="path_calculated" target="wait" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="459" yCoord="140"/>
       <arcpath arcPointType="false" id="1" xCoord="357" yCoord="216"/>
     </arc>
-    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="19" source="wait" target="receive_information_from_manager" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="334" yCoord="214"/>
-      <arcpath arcPointType="false" id="1" xCoord="245" yCoord="130"/>
+    <arc id="A3" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="19" source="wait" target="navigator_received_location" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="333" yCoord="215"/>
+      <arcpath arcPointType="false" id="1" xCoord="244" yCoord="135"/>
     </arc>
   </net>
   <k-bound bound="3"/>
