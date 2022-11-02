@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
+    <net id="ComposedModel" type="http://www.pnml.org/version-2009/grammar/ptnet">
+        <page id="page0">
+            <place id="calculate_path">
+                <graphics>
+                    <position x="330" y="120"/>
+                </graphics>
+                <name>
+                    <graphics>
+                        <offset x="50" y="-16"/>
+                    </graphics>
+                    <text>calculate_path</text>
+                </name>
+                <initialMarking>
+                    <text>1</text>
+                </initialMarking>
+            </place>
+            <place id="wait">
+                <graphics>
+                    <position x="330" y="210"/>
+                </graphics>
+                <name>
+                    <graphics>
+                        <offset x="28" y="45"/>
+                    </graphics>
+                    <text>wait</text>
+                </name>
+                <initialMarking>
+                    <text>0</text>
+                </initialMarking>
+            </place>
+            <transition id="navigator_received_location">
+                <name>
+                    <graphics>
+                        <offset x="-1" y="37"/>
+                    </graphics>
+                    <text>navigator_received_location</text>
+                </name>
+                <graphics>
+                    <position x="225" y="120"/>
+                </graphics>
+            </transition>
+            <transition id="path_calculated">
+                <name>
+                    <graphics>
+                        <offset x="101" y="42"/>
+                    </graphics>
+                    <text>path_calculated</text>
+                </name>
+                <graphics>
+                    <position x="450" y="120"/>
+                </graphics>
+            </transition>
+            <arc id="calculate_path_to_path_calculated" source="calculate_path" target="path_calculated" type="normal"/>
+            <arc id="wait_to_navigator_received_location" source="wait" target="navigator_received_location" type="normal"/>
+            <arc id="navigator_received_location_to_calculate_path" source="navigator_received_location" target="calculate_path" type="normal"/>
+            <arc id="path_calculated_to_wait" source="path_calculated" target="wait" type="normal"/>
+        </page>
+        <name>
+            <text>ComposedModel</text>
+        </name>
+    </net>
+</pnml>
