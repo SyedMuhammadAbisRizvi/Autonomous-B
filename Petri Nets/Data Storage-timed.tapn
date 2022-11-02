@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <net active="true" id="TAPN1" type="P/T net">
+    <place displayName="true" id="storing_data" initialMarking="1" invariant="&lt; inf" name="storing_data" nameOffsetX="0" nameOffsetY="0" positionX="420" positionY="180"/>
+    <place displayName="true" id="wait" initialMarking="0" invariant="&lt; inf" name="wait" nameOffsetX="0" nameOffsetY="0" positionX="420" positionY="360"/>
+    <transition angle="0" displayName="true" id="acessing_data" infiniteServer="false" name="acessing_data" nameOffsetX="0" nameOffsetY="0" player="0" positionX="240" positionY="240" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="data_verified" infiniteServer="false" name="data_verified" nameOffsetX="0" nameOffsetY="0" player="0" positionX="630" positionY="240" priority="0" urgent="false"/>
+    <arc id="A0" inscription="1" nameOffsetX="0" nameOffsetY="0" source="acessing_data" target="storing_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="260" yCoord="250"/>
+      <arcpath arcPointType="false" id="1" xCoord="420" yCoord="199"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="storing_data" target="data_verified" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="449" yCoord="199"/>
+      <arcpath arcPointType="false" id="1" xCoord="639" yCoord="255"/>
+    </arc>
+    <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="data_verified" target="wait" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="639" yCoord="260"/>
+      <arcpath arcPointType="false" id="1" xCoord="448" yCoord="367"/>
+    </arc>
+    <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait" target="acessing_data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="422" yCoord="366"/>
+      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="255"/>
+    </arc>
+  </net>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
