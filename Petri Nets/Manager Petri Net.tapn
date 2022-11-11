@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
-  <net active="true" id="TAPN1" type="P/T net">
+  <net active="true" id="Manager" type="P/T net">
     <place displayName="true" id="get_solution" initialMarking="0" invariant="&lt; inf" name="get_solution" nameOffsetX="94" nameOffsetY="12" positionX="630" positionY="135"/>
     <place displayName="true" id="send_location_to_navigator" initialMarking="0" invariant="&lt; inf" name="send_location_to_navigator" nameOffsetX="-3" nameOffsetY="24" positionX="516" positionY="264"/>
     <place displayName="true" id="wait_for_path" initialMarking="0" invariant="&lt; inf" name="wait_for_path" nameOffsetX="103" nameOffsetY="14" positionX="552" positionY="402"/>
@@ -25,16 +25,16 @@
       <arcpath arcPointType="false" id="1" xCoord="644" yCoord="249"/>
     </arc>
     <arc id="A4" inscription="1" nameOffsetX="0" nameOffsetY="0" source="location_accepted" target="send_location_to_navigator" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="523" yCoord="205"/>
+      <arcpath arcPointType="false" id="0" xCoord="522" yCoord="205"/>
       <arcpath arcPointType="false" id="1" xCoord="529" yCoord="264"/>
     </arc>
     <arc id="A5" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="send_location_to_navigator" target="navigator_received_location" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="530" yCoord="293"/>
-      <arcpath arcPointType="false" id="1" xCoord="528" yCoord="348"/>
+      <arcpath arcPointType="false" id="1" xCoord="528" yCoord="347"/>
     </arc>
     <arc id="A6" inscription="1" nameOffsetX="0" nameOffsetY="0" source="navigator_received_location" target="wait_for_path" type="normal" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="528" yCoord="358"/>
-      <arcpath arcPointType="false" id="1" xCoord="558" yCoord="403"/>
+      <arcpath arcPointType="false" id="0" xCoord="528" yCoord="357"/>
+      <arcpath arcPointType="false" id="1" xCoord="558" yCoord="404"/>
     </arc>
     <arc id="A8" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait_for_path" target="path_calculated" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="567" yCoord="431"/>
@@ -45,18 +45,18 @@
       <arcpath arcPointType="false" id="1" xCoord="569" yCoord="555"/>
     </arc>
     <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="-15" source="wait" target="problem_accepted" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="251" yCoord="190"/>
-      <arcpath arcPointType="false" id="1" xCoord="346" yCoord="90"/>
+      <arcpath arcPointType="false" id="0" xCoord="251" yCoord="191"/>
+      <arcpath arcPointType="false" id="1" xCoord="350" yCoord="94"/>
       <arcpath arcPointType="false" id="2" xCoord="539" yCoord="90"/>
     </arc>
     <arc id="A13" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="wait" target="location_accepted" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="255" yCoord="203"/>
-      <arcpath arcPointType="false" id="1" xCoord="370" yCoord="214"/>
-      <arcpath arcPointType="false" id="2" xCoord="508" yCoord="201"/>
+      <arcpath arcPointType="false" id="1" xCoord="374" yCoord="218"/>
+      <arcpath arcPointType="false" id="2" xCoord="507" yCoord="201"/>
     </arc>
     <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="solution_found" target="compile_data" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="644" yCoord="259"/>
-      <arcpath arcPointType="false" id="1" xCoord="725" yCoord="536"/>
+      <arcpath arcPointType="false" id="1" xCoord="729" yCoord="540"/>
       <arcpath arcPointType="false" id="2" xCoord="584" yCoord="567"/>
     </arc>
     <arc id="A10" inscription="[0,inf)" nameOffsetX="-7" nameOffsetY="-32" source="compile_data" target="accesing_data" type="timed" weight="2">
@@ -65,24 +65,24 @@
     </arc>
     <arc id="A15" inscription="1" nameOffsetX="0" nameOffsetY="0" source="accesing_data" target="storing_data" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="554" yCoord="675"/>
-      <arcpath arcPointType="false" id="1" xCoord="498" yCoord="694"/>
+      <arcpath arcPointType="false" id="1" xCoord="497" yCoord="694"/>
     </arc>
     <arc id="A16" inscription="[0,inf)" nameOffsetX="4" nameOffsetY="16" source="storing_data" target="data_verified" type="timed" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="468" yCoord="699"/>
-      <arcpath arcPointType="false" id="1" xCoord="329" yCoord="702"/>
-      <arcpath arcPointType="false" id="2" xCoord="334" yCoord="650"/>
+      <arcpath arcPointType="false" id="1" xCoord="333" yCoord="706"/>
+      <arcpath arcPointType="false" id="2" xCoord="329" yCoord="649"/>
     </arc>
     <arc id="A17" inscription="1" nameOffsetX="0" nameOffsetY="0" source="data_verified" target="assigning_actuator_task" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="329" yCoord="639"/>
       <arcpath arcPointType="false" id="1" xCoord="302" yCoord="479"/>
     </arc>
     <arc id="A18" inscription="[0,inf)" nameOffsetX="-10" nameOffsetY="-8" source="assigning_actuator_task" target="task_accepted" type="timed" weight="1">
-      <arcpath arcPointType="false" id="0" xCoord="296" yCoord="450"/>
-      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="320"/>
+      <arcpath arcPointType="false" id="0" xCoord="295" yCoord="450"/>
+      <arcpath arcPointType="false" id="1" xCoord="254" yCoord="319"/>
     </arc>
     <arc id="A19" inscription="1" nameOffsetX="0" nameOffsetY="0" source="task_accepted" target="wait" type="normal" weight="1">
       <arcpath arcPointType="false" id="0" xCoord="254" yCoord="309"/>
-      <arcpath arcPointType="false" id="1" xCoord="243" yCoord="216"/>
+      <arcpath arcPointType="false" id="1" xCoord="242" yCoord="216"/>
     </arc>
   </net>
   <k-bound bound="3"/>
