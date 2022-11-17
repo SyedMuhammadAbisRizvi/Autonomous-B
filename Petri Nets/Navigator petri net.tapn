@@ -22,6 +22,7 @@
       <arcpath arcPointType="false" id="1" xCoord="244" yCoord="135"/>
     </arc>
   </net>
+  <query active="true" approximationDenominator="2" capacity="0" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="calculate path" overApproximation="false" pTrie="true" query="AG deadlock" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="false" timeDarts="false" traceOption="NONE" useStubbornReduction="true" useTarOption="false"/>
   <k-bound bound="3"/>
   <feature isGame="false" isTimed="true"/>
 </pnml>
