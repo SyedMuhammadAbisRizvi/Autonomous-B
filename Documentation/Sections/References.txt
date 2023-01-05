@@ -1,0 +1,100 @@
+deng_overview_2011 0
+advance 0
+design 0
+practical 0
+epoch 0
+intelligent 0
+
+single_input
+multiple_input
+tf_linear
+layer
+
+
+
+
+@inproceedings{deng_overview_2011,
+	title = {An Overview of Deep-Structured Learning for Information Processing},
+	url = {https://www.microsoft.com/en-us/research/publication/an-overview-of-deep-structured-learning-for-information-processing/},
+	abstract = {In this paper, I will introduce to the {APSIPA} audience an emerging area of machine learning, deep-structured learning. It refers to a class of machine learning techniques, developed mostly since 2006, where many layers of information processing stages in hierarchical architectures are exploited for pattern classification and for unsupervised feature learning. First, the brief history of deep learning is discussed. Then, I develop a classificatory scheme to analyze and summarize major work reported in the deep learning literature. Using this scheme, I provide a taxonomy-oriented survey on the existing deep architectures, and categorize them into three types: generative, discriminative, and hybrid. Two prime deep architectures, one hybrid and one discriminative, are presented in detail. Finally, selected applications of deep learning are reviewed in broad areas of information processing including audio/speech, image/video, multimodality, language modeling, natural language processing, and information retrieval.},
+	pages = {1--14},
+	booktitle = {Proc. Asian-Pacific Signal \& Information Proc. Annual Summit \& Conference ({APSIPA}-{ASC})},
+	author = {Deng, Li},
+	year = {2011-10},
+	note = {Edition: Proc. Asian-Pacific Signal \& Information Proc. Annual Summit \& Conference ({APSIPA}-{ASC})},
+}
+
+@book{design,
+	location = {s.L},
+	edition = {2nd edition},
+	title = {Neural network design},
+	isbn = {978-0-9717321-1-7},
+	pagetotal = {1},
+	publisher = {Martin T. Hagan},
+	author = {Hagan, Martin T. and Demuth, Howard B. and Beale, Mark Hudson and De Jésus, Orlando},
+	year = {2014},
+}
+
+@book{practical,
+	title = {Practical Convolutional Neural Networks: Implement advanced deep learning models using Python},
+	isbn = {978-1-78839-230-3},
+	shorttitle = {Practical Convolutional Neural Networks},
+	pagetotal = {218},
+	publisher = {Packt Publishing},
+	author = {Sewak, Mohit and Karim, Md Rezaul and Pujari, Pradeep},
+	year = {2018-02-27},
+}
+
+@book{intelligent, place={Birmingham, UK}, title={Intelligent projects using python: 9 real-world AI projects Leveraging Machine Learning and deep learning with TensorFlow and keras}, publisher={Packt Publishing}, author={Pattanayak, Santanu}, year={2019}} 
+
+@book{advance, place={Berkeley, CA}, title={Advanced applied deep learning: Convolutional Neural Networks and object detection}, publisher={Apress}, author={Michelucci, Umberto}, year={2019}} 
+ 
+ 
+@online{epoch,
+	title = {Epoch (machine learning) {\textbar} Radiology Reference Article {\textbar} Radiopaedia.org},
+	url = {https://radiopaedia.org/articles/epoch-machine-learning},
+	abstract = {An epoch is a term used in machine learning and indicates the number of passes of the entire training dataset the machine learning algorithm has completed. Datasets are usually grouped into batches (especially when the amount of data is very larg...},
+	titleaddon = {Radiopaedia},
+	author = {Gaillard, Frank},
+	urldate = {2022-10-22},
+	langid = {british},
+	doi = {10.53347/rID-56141},
+	file = {Snapshot:C\:\\Users\\sheik\\Zotero\\storage\\CP5FZA5N\\epoch-machine-learning.html:text/html},
+}
+
+
+@online{importantargi,
+	title = {The Art and Science of Agriculture {\textbar} National Geographic Society},
+	url = {https://education.nationalgeographic.org/resource/agriculture},
+	abstract = {Agriculture is the art and science of cultivating the soil, growing crops and raising livestock.},
+	urldate = {2023-01-03},
+	annotation = {importantargi
+},
+	file = {Snapshot:files/161/agriculture.html:text/html},
+}
+
+@online{weedproblem,
+	title = {Weeds ‑ when are they a problem?},
+	url = {https://www.dal.ca/faculty/agriculture/oacc/en-home/resources/pest-management/weed-management/organic-weed-mgmt-resources/weeds-problem.html},
+	titleaddon = {Dalhousie University},
+	urldate = {2023-01-03},
+	langid = {english},
+	annotation = {weedproblem
+},
+	file = {Snapshot:files/164/weeds-problem.html:text/html},
+}
+
+@inproceedings{smartfarm,
+	title = {Crop Monitoring and Automatic Weed Detection using Drone},
+	doi = {10.1109/CAPS52117.2021.9730682},
+	abstract = {The effective farming means lossless farming which is a desired need of current scenario, since the cost of farming is increasing continuously. Weeds are a big problem in agriculture because it is major part of agricultural losses. Nowadays, herbicides are sprayed uniformly throughout the field to control the weed. This method is not only expensive but also have bad impacts on environment and human health. Therefore, an automatic system is needed for spot spray. Improvement in drone technology leads to availability of high payload drone that are suitable for pesticides spraying. Embedded system programed with deep learning when use to control the drone then it will be possible to spray the herbicides at desired place. This paper discusses the artificial intelligence ({AI}) based crop monitoring and weed detection system that are suitable for spot herbicides spraying.},
+	eventtitle = {2021 International Conference on Control, Automation, Power and Signal Processing ({CAPS})},
+	pages = {1--4},
+	booktitle = {2021 International Conference on Control, Automation, Power and Signal Processing ({CAPS})},
+	author = {Hafeez, Abdul and Tiwari, Vikas and Verma, Vinod Kumar and Ansari, Akhtar Saleem and Husain, Mohammed Aslam and Singh, S. P. and Khan, Ahmad Neyaz},
+	year = {2021-12},
+	keywords = {Deep learning, Agriculture, Artificial intelligence, {CNN}, Crops, Drone, Monitoring, Real-time systems, Signal processing, Spraying, Weed detection},
+	annotation = {smartfarm
+},
+	file = {IEEE Xplore Full Text PDF:files/167/Hafeez et al. - 2021 - Crop Monitoring and Automatic Weed Detection using.pdf:application/pdf},
+}
