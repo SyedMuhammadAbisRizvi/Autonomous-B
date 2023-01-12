@@ -98,3 +98,12 @@ layer
 },
 	file = {IEEE Xplore Full Text PDF:files/167/Hafeez et al. - 2021 - Crop Monitoring and Automatic Weed Detection using.pdf:application/pdf},
 }
+
+@article{Giselsson2017,
+author = {Giselsson, Thomas Mosgaard and Dyrmann, Mads and J{\o}rgensen, Rasmus Nyholm and Jensen, Peter Kryger and Midtiby, Henrik Skov},
+journal = {arXiv preprint},
+keywords = {benchmark,database,plant seedlings,segmentation,site-specific weed control},
+title = {{A Public Image Database for Benchmark of Plant Seedling Classification Algorithms}},
+year = {2017}
+}
+
